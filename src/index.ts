@@ -45,13 +45,13 @@ function shouldShowDeprecationWarning(): boolean {
   if (
     typeof window !== 'undefined' ||
     typeof process === 'undefined' ||
-    process.version === undefined ||
-    process.version === null
+    process['version'] === undefined ||
+    process['version'] === null
   ) {
     return false
   }
 
-  const versionMatch = process.version.match(/^v(\d+)\./)
+  const versionMatch = process['version'].match(/^v(\d+)\./)
   if (!versionMatch) {
     return false
   }
